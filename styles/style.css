@@ -266,9 +266,8 @@ body {
                         }
 
                         & .game-details {
-                            display: grid;
+                            display: flex;
                             gap: 1rem;
-                            grid-template-columns: 150px auto;
 
                             & .team-name {
                                 display: flex;
@@ -286,20 +285,15 @@ body {
                                 }
                             }
 
-                            & .predict-section {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 1rem;
-                                align-items: center;
-                                justify-content: space-around;
-
                                 & p{
                                     color: var(--col-w-100);
+                                    flex: 1;
                                 }
                                 & button {
                                     background: #0d345f;
                                     border: none;
-                                    width: 40%;
+                                    flex: 1;
+                                    /* width: 40%; */
                                     padding: 1rem 2rem;
                                     color: var(--col-w-100);
 
@@ -313,7 +307,6 @@ body {
                                     background: var(--bg-secondary);
                                     color: var(--col-200);
                                 }
-                            }
                         }
                     }
                 }
@@ -324,7 +317,7 @@ body {
                 position: absolute;
                 width: 100%;
                 left: 0;
-                height: 150px;
+                height: 100px;
                 top: 0;
                 background: var(--col-200);
                 opacity: 0.4;
@@ -343,188 +336,7 @@ body {
                 display: none;
                 top: 1rem;z-index: 10000;right: 1rem;
             }
-            & .game-history {
-                display: flex;
-                flex-direction: column;
-                border-radius: 15px;
-                border: 1px solid #07509F;
-                overflow: hidden;
-                background: var(--col-w-200);
-
-                & .game-button-container {
-                    display: flex;
-                    justify-content: space-evenly;
-
-                    & a {
-                        display: flex;
-                        flex: 1;
-                        padding: 1rem;
-                        background: var(--col-200);
-                        text-transform: capitalize;
-                        cursor: pointer;
-                        color: var(--col-w-100);
-                        transition: all 200ms ease-in-out;
-                    }
-
-                    & .active,
-                    & a:hover {
-                        color: var(--bg-secondary);
-                        font-weight: 800;
-                        border-bottom: 5px solid var(--bg-secondary);
-                    }
-                }
-
-                & .game-history-container {
-                    display: flex;
-                    width: 18rem;
-                    min-width: 200px;
-                    overflow-x: hidden;
-
-                    & .my-history {
-                        min-height: 19rem;
-                        background: var(--col-200);
-                        width: 0px;
-
-                        & .mynav {
-                            display: flex;
-                            justify-content: space-between;
-                            padding: 1rem 1rem 0;
-
-                            & li {
-                                list-style: none;
-                                color: var(--bg-secondary);
-                                text-transform: capitalize;
-
-                                & a {
-                                    text-transform: capitalize;
-                                    color: var(--col-w-100);
-                                }
-                            }
-
-                            & li:hover {
-                                color: var(--bg-secondary);
-
-                                & a {
-                                    color: var(--bg-secondary);
-                                }
-                            }
-                        }
-                    }
-
-                    & .my-bet {
-                        width: 100%;
-
-                        & .bet-list {
-                            display: flex;
-                            padding: .5rem;
-                            align-items: center;
-                            border-bottom: 1px solid #0001;
-                            justify-content: space-between;
-
-                            & .left {
-                                display: flex;
-                                flex-direction: column;
-                                gap: .5rem;
-
-                                & .bet-option {
-                                    font-size: .8rem;
-                                    text-transform: capitalize;
-                                    color: var(--bg);
-                                    opacity: 0.8;
-                                    font-weight: 800;
-                                }
-
-                                & span {
-                                    font-size: .7rem;
-                                    color: var(--bg);
-                                }
-
-                                & .bet-team {
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 1rem;
-
-                                    & h3 {
-                                        font-size: 1rem;
-                                        text-transform: capitalize;
-                                        color: var(--col-300);
-                                    }
-                                }
-                            }
-                            & .odd{
-                                color: var(--bg);
-                            }
-                        }
-
-                        & .cal-odd {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 1rem;
-
-                            & .the-game-amount {
-                                padding: 1rem .5rem .1rem;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                gap: 1rem;
-
-                                & h1 {
-                                    font-size: 1rem;
-                                    text-transform: capitalize;
-                                }
-
-                                & form {
-                                    display: flex;
-                                    gap: .5rem;
-                                    align-items: center;
-
-                                    & .input-amount {
-                                        border: 1px solid #0002;
-
-                                        & input {
-                                            width: 5rem;
-                                            padding: .5rem;
-                                            text-align: right;
-                                            border: none;
-                                            outline: none;
-
-                                        }
-                                    }
-                                }
-                            }
-
-                            & .odd {
-                                display: flex;
-                                justify-content: space-between;
-                                padding: .5rem .5rem 1rem;
-                            }
-
-                            & .place-button {
-                                padding: 1rem;
-                                border: 0;
-                                background: var(--bg-secondary);
-                                text-transform: capitalize;
-                                font-weight: 800;
-                                font-size: 16px;
-                                color: var(--col-200);
-                                cursor: pointer;
-                                transition: all 500ms ease;
-                            }
-
-                            & .place-button:hover {
-                                background: var(--col-200);
-                                color: var(--col-w-100);
-                            }
-                        }
-                    }
-
-                    & .bet-col {
-                        overflow: hidden;
-                        transition: all 500ms ease;
-                    }
-                }
-            }
-
+        
             & .top-container {
                 position: relative;
                 background: var(--bg-primary);
@@ -720,7 +532,7 @@ body {
         }
     }
 
-    &>.fa-times {
+    & >.fa-times {
         color: var(--col-w-100);
         font-size: 2rem;
         cursor: pointer;

@@ -22,7 +22,7 @@ const searchClicked = document.querySelector(".search-container");
 
 searchClicked.addEventListener('click', () =>{
     const searchbody = document.querySelector(".search");
-    const searchclose = document.querySelector(".fa-times");
+    const searchclose = searchbody.querySelector(".fa-times");
     searchbody.classList.add("scale");
     searchclose.addEventListener('click', () =>{
         searchbody.classList.remove("scale");
@@ -61,3 +61,48 @@ function handleClick(event) {
 
     event.currentTarget.classList.add('active'); // Use event.currentTarget
 }
+
+
+
+
+
+function countdown(minutes) {
+    let targetTime = Date.now() + minutes * 60 * 1000;
+
+    let countdownInterval = setInterval(() => {
+      let remainingTime = Math.floor((targetTime - Date.now()) / 1000);
+      let remainingMinutes = Math.floor(remainingTime / 60);
+      let remainingSeconds = remainingTime % 60;
+
+      // Format the countdown with minutes and seconds
+      const countdownDisplay = `${remainingMinutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+
+      // Display the countdown in the HTML element
+      const countdownElement = document.querySelector(".countdown");
+      countdownElement.textContent = `${countdownDisplay}`;
+
+      if (remainingTime <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.textContent = "Time's up!";
+      }
+    }, 1000);
+  }
+
+  // Start the countdown
+  countdown(1);
+
+
+
+ // Get the current date
+ const currentDate = new Date();
+
+ // Extract the day and month
+ const day = currentDate.getDate();
+ const month = currentDate.getMonth() + 1; // Months are 0-indexed, add 1 for human-readable format
+
+ // Construct the date display
+ const dateDisplay = `${day}/${month}`; // Use a slash for separation
+
+ // Update the HTML element with the date
+ const dateElement = document.querySelector(".Date");
+ dateElement.textContent = dateDisplay;
