@@ -83,7 +83,7 @@ function countdown(minutes) {
 
       if (remainingTime <= 0) {
         clearInterval(countdownInterval);
-        countdownElement.textContent = "Time's up!";
+        countdownElement.textContent = "match day!";
       }
     }, 1000);
   }
@@ -106,3 +106,31 @@ function countdown(minutes) {
  // Update the HTML element with the date
  const dateElement = document.querySelector(".Date");
  dateElement.textContent = dateDisplay;
+
+
+
+
+ function countdownTimer(minutes) {
+  let targetTime = Date.now() + minutes * 60 * 1000;
+
+  let countdownInterval = setInterval(() => {
+    let remainingTime = Math.floor((targetTime - Date.now()) / 1000);
+    let remainingMinutes = Math.floor(remainingTime / 60);
+    let remainingSeconds = remainingTime % 60;
+
+    // Format the countdown with minutes and seconds
+    const countdownDisplay = `${remainingMinutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+
+    // Display the countdown in the HTML element
+    const countdownElement = document.querySelector(".timer");
+    countdownElement.textContent = `${countdownDisplay}`;
+
+    if (remainingTime <= 0) {
+      clearInterval(countdownInterval);
+      countdownElement.textContent = "Time's up!";
+    }
+  }, 1000);
+}
+
+// Start the countdown
+countdownTimer(10);
